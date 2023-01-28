@@ -1,11 +1,29 @@
 // GET REQUEST
 function getTodos() {
-  console.log('GET Request');
+  axios({
+    method:'get',
+    url:'https://jsonplaceholder.typicode.com/todos',
+    params:{
+      _limit:5
+    }
+  })
+    .then(res=>showOutput(res))
+    .catch(err);
+
 }
 
 // POST REQUEST
 function addTodo() {
-  console.log('POST Request');
+  axios({
+    method:'post',
+    url:'https://jsonplaceholder.typicode.com/todos',
+    data:{
+      title:'new tools',
+      completed:false
+    }
+  })
+    .then(res=>showOutput(res))
+    .catch(err=>console.log(err));
 }
 
 // PUT/PATCH REQUEST
